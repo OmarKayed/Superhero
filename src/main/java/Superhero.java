@@ -1,10 +1,10 @@
 public class Superhero {
     private String navn;
     private String kræfter;
-    private String fødtIÅrstal;
+    private int fødtIÅrstal;
     private String ægteNavn;
 
-    public Superhero (String navn, String kræfter, String fødtIÅrstal, String ægteNavn){
+    public Superhero (String navn, String kræfter, int fødtIÅrstal, String ægteNavn){
         this.navn = navn;
         this.kræfter = kræfter;
         this.fødtIÅrstal = fødtIÅrstal;
@@ -19,7 +19,7 @@ public class Superhero {
         return kræfter;
     }
 
-    public String getFødtIÅrstal(){
+    public int getFødtIÅrstal(){
         return fødtIÅrstal;
     }
 

@@ -12,9 +12,10 @@ public class Main {
         String heroPower = scanner.next();
 
         System.out.println("Hvornår blev din superhelt skabt?");
-        String heroCreation = scanner.next();
+        int heroCreation = scanner.nextInt();
 
         System.out.println("Er din superhelt et ægte menneske? Y/N");
         String heroReal = scanner.next();
+        Superhero superhero1 = new Superhero(heroName, heroPower, heroCreation, heroReal);
     }
 }
