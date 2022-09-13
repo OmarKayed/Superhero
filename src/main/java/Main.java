@@ -5,7 +5,7 @@ public class Main {
     // Databasen bliver sat ind, eftersom at vi skal bruge dens data for at kunne skabe superhelte
     public static Database database = new Database();
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         System.out.println("Velkommen til superhelte programmet");
         System.out.println("1. Opret superhelt");
         System.out.println("9. Afslut");
@@ -13,7 +13,7 @@ public class Main {
 
         int input = scanner.nextInt();
         scanner.nextLine();
-        if (input==1){
+        if (input == 1) {
             System.out.println("Indtast din superhelts navn ");
             String heroName = scanner.nextLine();
 
@@ -30,19 +30,41 @@ public class Main {
             System.out.println("Er din superhelt et ægte menneske? J/N");
             char heroRealInput = scanner.next().charAt(0);
             boolean ægteSuperhelt = false;
-            if (heroRealInput == 'j'){
+            if (heroRealInput == 'J') {
                 ægteSuperhelt = true;
-            }else if (heroRealInput == 'n'){
+            } else if (heroRealInput == 'N') {
                 ægteSuperhelt = false;
-            }else{
+            } else {
                 System.out.println("Ugyldigt input");
             }
             // Databasens input kan nu blive brugt her
-            database.createSuperhero(heroName,heroPower,heroCreation,heroReal, ægteSuperhelt);
+            database.createSuperhero(heroName, heroPower, heroCreation, heroReal, ægteSuperhelt);
+            printSuperheroList();
 
-        } else if(input==9){
+        } else if (input == 9) {
             System.exit(1);
         }
-
     }
-}
+
+    // Printer en liste med alle mine get, så at jeg kan få et "overview" af de superhelte som bliver skabt
+        public static void printSuperheroList(){
+            System.out.println("Liste af superhelte: \n");
+            for (Superhero superhero : database.getSuperheroArrayList()){
+                System.out.println("Superheltens navn er: " + superhero.getNavn());
+                System.out.println("Superheltens rigtige navn er: " + superhero.getÆgteNavn());
+                System.out.println("Din superhelt har disse kræfter: " + superhero.getKræfter());
+                System.out.println("Årstallet for superhelten er: " + superhero.getFødtIÅrstal());
+                // En loop bliver skabt her for at kunne få et andet input end true eller false, så hvis den er true får jeg et ja, og hvis mit input er false får jeg et nej
+                if (superhero.getÆgteSuperhelt() == true) {
+                    System.out.println("Er din superhelt et menneske? : Ja");
+                } else {
+                    System.out.println("Er din superhelt et menneske? : Nej");
+                }
+
+
+
+
+            }
+
+        }
+    }
