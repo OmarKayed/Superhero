@@ -3,12 +3,14 @@ public class Superhero {
     private String kræfter;
     private int fødtIÅrstal;
     private String ægteNavn;
+    private boolean ægteSuperhelt;
 
-    public Superhero (String navn, String kræfter, int fødtIÅrstal, String ægteNavn){
+    public Superhero (String navn, String kræfter, int fødtIÅrstal, String ægteNavn, boolean ægteSuperhelt){
         this.navn = navn;
         this.kræfter = kræfter;
         this.fødtIÅrstal = fødtIÅrstal;
         this.ægteNavn = ægteNavn;
+        this.ægteSuperhelt = ægteSuperhelt;
     }
 
     public String getNavn(){
@@ -25,6 +27,10 @@ public class Superhero {
 
     public String getÆgteNavn(){
         return ægteNavn;
+    }
+
+    public boolean getÆgteSuperhelt() {
+        return ægteSuperhelt;
     }
 
 }
