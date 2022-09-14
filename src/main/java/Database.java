@@ -21,5 +21,19 @@ public void createSuperhero (String navn, String kræfter, int fødtIÅrstal, St
     public ArrayList<Superhero> getSuperheroArrayList() {
         return superheroArrayList;
     }
+
+    public Superhero searchForSuperhero(String searchTerm) {
+        for (Superhero superhero : superheroArrayList){
+            String navn = superhero.getNavn().toLowerCase();
+            if (navn.contains(searchTerm.toLowerCase())){
+                return superhero;
+            }
+        }
+        return null;
+
+    }
+
 }
+
+
 
