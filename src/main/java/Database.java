@@ -1,10 +1,8 @@
 import java.util.ArrayList;
 
 public class Database {
-// private Superhero [] superheroes;
 private ArrayList < Superhero > superheroArrayList;
 private int superheroesInTotal;
-
 
 // Arrayen er blevet erstattet med en arrayliste, for at den ligesom kan expande når der bliver løbet tør for plads
 public Database(){
