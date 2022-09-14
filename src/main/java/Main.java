@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Velkommen til superhelte programmet");
         System.out.println("1. Opret superhelt");
+        System.out.println("2. Liste af superhelte");
         System.out.println("9. Afslut");
         // Programmet bliver sat ind i et loop, da vi har to valgmuligheder. enten at oprette en helt eller afslutte programmet
 
@@ -44,6 +45,10 @@ public class Main {
         } else if (input == 9) {
             System.exit(1);
         }
+        else if (input == 2) {
+            database.getSuperheroArrayList();
+            System.out.println("Liste af superhelte" + database.getSuperheroArrayList());
+        }
     }
 
     // Printer en liste med alle mine get, så at jeg kan få et "overview" af de superhelte som bliver skabt
@@ -60,11 +65,6 @@ public class Main {
                 } else {
                     System.out.println("Er din superhelt et menneske? : Nej");
                 }
-
-
-
-
             }
-
         }
     }
