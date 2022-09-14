@@ -22,6 +22,9 @@ public void createSuperhero (String navn, String kræfter, int fødtIÅrstal, St
         return superheroArrayList;
     }
 
+    public void createTestData () {
+    createSuperhero("Batman", "Dragt", 1996, "Bruce Wayne",true);
+    }
     public Superhero searchForSuperhero(String searchTerm) {
         for (Superhero superhero : superheroArrayList){
             String navn = superhero.getNavn().toLowerCase();
@@ -30,7 +33,6 @@ public void createSuperhero (String navn, String kræfter, int fødtIÅrstal, St
             }
         }
         return null;
-
     }
 
 }

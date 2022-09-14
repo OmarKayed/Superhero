@@ -6,12 +6,14 @@ public class Main {
     public static Database database = new Database();
 
     public static void main(String[] args) {
+        database.createTestData(); // Den skal fjernes
 
         // Programmet bliver sat ind i et loop, da vi har to valgmuligheder. enten at oprette en helt eller afslutte programmet
         do {
             System.out.println("Velkommen til superhelte programmet");
             System.out.println("1. Opret superhelt");
             System.out.println("2. Liste af superhelte");
+            System.out.println("3. Søg efter en superhelt");
             System.out.println("9. Afslut");
             int input = scanner.nextInt();
             scanner.nextLine();
@@ -54,6 +56,8 @@ public class Main {
                 System.exit(1);
             } else if (input == 2) {
                 printSuperheroList();
+            } else if(input == 3){
+                searchForSuperhero();
             }
         } while (true);
     }
@@ -75,5 +79,25 @@ public class Main {
                 }
             }
             System.out.println();
+
+
+        }
+
+        // Ved hjælp af database blev der skabt en void for at kunne få brugeren til at se hvilken superhelt de har skabt
+        public static void searchForSuperhero(){
+            System.out.println("Indtast din helt her: \n" );
+            String searchTerm = scanner.nextLine();
+
+            Superhero superhero = database.searchForSuperhero(searchTerm);
+
+            if (superhero == null){
+                System.out.println("Ingen superhelt fundet");
+            }else {
+                System.out.println("Superheltens navn er: " + superhero.getNavn());
+                System.out.println("Superheltens rigtige navn er: " + superhero.getÆgteNavn());
+                System.out.println("Din superhelt har disse kræfter: " + superhero.getKræfter());
+                System.out.println("Årstallet for superhelten er: " + superhero.getFødtIÅrstal());
+            }
+
         }
     }
