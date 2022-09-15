@@ -8,15 +8,15 @@ private int superheroesInTotal;
 public Database(){
     superheroArrayList = new ArrayList<>();
 
-    // Når du opretter en superhelt starter man på 0, hvilket er hvorfor at totalen er 0
-    superheroesInTotal = 0;
+    superheroesInTotal = 0;  // Når du opretter en superhelt starter man på 0, siden at der ikke er oprettet nogle superhelte
 }
-// Fremfor at min main laver en superhero, så gør min database det inde i mit array
+// Fremfor at min main laver en superhero, så gør min database det inde i mit array, og dermed kan der være et uendeligt antal af superhelte
 public void createSuperhero (String navn, String kræfter, int fødtIÅrstal, String ægteNavn, boolean ægteSuperhelt){
     Superhero superhero = new Superhero(navn, kræfter,fødtIÅrstal, ægteNavn, ægteSuperhelt);
     superheroesInTotal=superheroArrayList.size();
     superheroArrayList.add(superhero);
     }
+
 
     public ArrayList<Superhero> getSuperheroArrayList() {
         return superheroArrayList;
@@ -33,6 +33,14 @@ public void createSuperhero (String navn, String kræfter, int fødtIÅrstal, St
             }
         }
         return null;
+    }
+
+    public Superhero findSuperhero (String name) {
+    for (Superhero superhero : superheroArrayList) {
+        if (superhero.getNavn().equals(name))
+            return superhero;
+    }
+    return null;
     }
 
 }
