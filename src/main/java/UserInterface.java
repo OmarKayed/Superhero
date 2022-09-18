@@ -87,7 +87,7 @@ public class UserInterface {
 
         // Ved hjælp af database blev der skabt en void for at kunne få brugeren til at se hvilken superhelt de har skabt
         public static void searchForSuperhero(){
-            System.out.println("Indtast din helt her: \n" );
+            System.out.println("Indtast din helt her: " );
             String searchTerm = scanner.nextLine();
 
             Superhero superhero = database.searchForSuperhero(searchTerm);
@@ -102,7 +102,7 @@ public class UserInterface {
             }
         }
         public void editSuperhero(){
-            System.out.println("rediger din helt her: \n" );
+            System.out.println("rediger din helt her: " );
             String searchTerm = scanner.nextLine();
             Superhero superhero = database.searchForSuperhero(searchTerm);
 
@@ -116,17 +116,17 @@ public class UserInterface {
                     superhero.setNavn(nytNavn);
                 }
                 System.out.println("Superheltens rigtige navn er: " + superhero.getÆgteNavn());
-                String nytÆgteNavn = scanner.next();
+                String nytÆgteNavn = scanner.nextLine();
                 if(!nytÆgteNavn.isEmpty()){
                     superhero.setÆgteNavn(nytÆgteNavn);
                 }
                 System.out.println("Din superhelt har disse kræfter: " + superhero.getKræfter());
-                String nytKræfter = scanner.next();
+                String nytKræfter = scanner.nextLine();
                 if(!nytKræfter.isEmpty()){
                     superhero.setKræfter(nytKræfter);
                 }
                 System.out.println("Årstallet for superhelten er: " + superhero.getFødtIÅrstal());
-                String nytFødtIÅrstal = scanner.next();
+                String nytFødtIÅrstal = scanner.nextLine();
                 if(!nytFødtIÅrstal.isEmpty()){
                     superhero.setFødtIÅrstal(nytFødtIÅrstal);
                 }
