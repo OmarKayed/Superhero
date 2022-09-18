@@ -15,6 +15,7 @@ public class UserInterface {
                 System.out.println("2. Liste af superhelte");
                 System.out.println("3. Søg efter en superhelt");
                 System.out.println("4. Rediger en superhelt");
+                System.out.println("5. Søg efter en specifik superhelt");
                 System.out.println("9. Afslut");
                 int input = scanner.nextInt();
                 scanner.nextLine();
@@ -61,7 +62,11 @@ public class UserInterface {
                     searchForSuperhero();
                 } else if (input ==4) {
                     editSuperhero();
+                } else if (input ==5) {
+                    findSuperhero();
+
                 }
+
 
             } while (true);
         }
@@ -132,8 +137,15 @@ public class UserInterface {
                 }
             }
         }
+        public static void findSuperhero(){
+            System.out.println("Indtast den helt du leder efter: ");
+            String searchTerm = scanner.nextLine();
+            Superhero superhero = database.findSuperhero(searchTerm);
+            if (superhero == null){
+                System.out.println("Ingen superhelt fundet");
     }
-
+     }
+       }
 
 
 
