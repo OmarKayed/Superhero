@@ -35,12 +35,24 @@ public void createSuperhero (String navn, String kræfter, int fødtIÅrstal, St
         return null;
     }
 
-    public Superhero findSuperhero (String name) {
-    for (Superhero superhero : superheroArrayList) {
-        if (superhero.getNavn().equals(name))
-            return superhero;
-    }
-    return null;
+    private ArrayList < Superhero > searchResults = new ArrayList<>();
+
+
+    public Superhero searchForSuperhero(String searchTerm){
+        Superhero searchResult = null;
+
+
+        // Et loop igennem arraylisten med superheltene
+        for (Superhero superhero : superheroArrayList){
+            // Kan skrive fx Batman med småt
+            String name = superhero.getNavn().toLowerCase();
+            // Hvis superhelten findes, så kan superhelten findes
+            if (name.contains(searchTerm.toLowerCase())){ // if superhero contains searchTerm, return superhero
+                searchResults.add(superhero);
+                searchResult = superhero;
+            }
+        }
+        return searchResult;
     }
 
 }

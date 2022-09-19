@@ -143,7 +143,12 @@ public class UserInterface {
             Superhero superhero = database.findSuperhero(searchTerm);
             if (superhero == null){
                 System.out.println("Ingen superhelt fundet");
-    }
+                   }else {
+                       System.out.println("Superheltens navn er: " + superhero.getNavn());
+                       System.out.println("Superheltens rigtige navn er: " + superhero.getÆgteNavn());
+                       System.out.println("Din superhelt har disse kræfter: " + superhero.getKræfter());
+                       System.out.println("Årstallet for superhelten er: " + superhero.getFødtIÅrstal());
+            }
      }
        }
 
