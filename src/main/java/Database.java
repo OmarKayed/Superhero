@@ -47,6 +47,21 @@ public class Database {
         return searchResult;
     }
 
+    public ArrayList<Superhero> searchForMoreHeroes(String searchTerm){
+        ArrayList<Superhero> superheroes = new ArrayList<>();
+
+        // Et loop igennem arraylisten med superheltene
+        for (Superhero superhero : superheroArrayList){
+            // Kan skrive fx Batman med småt
+            String name = superhero.getNavn().toLowerCase();
+            // Hvis superhelten findes, så kan superhelten findes
+            if (name.contains(searchTerm.toLowerCase())){
+                superheroes.add(superhero);
+            }
+        }
+        return superheroes;
+    }
+
 }
 
 

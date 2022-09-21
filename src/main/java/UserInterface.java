@@ -129,13 +129,10 @@ public class UserInterface {
     public void editSuperhero() {
         System.out.println("rediger din helt her: ");
         String searchTerm = scanner.nextLine();
-        ArrayList<Superhero> searchResults = new ArrayList<>(); //TODO
+        ArrayList<Superhero> searchResults = new ArrayList<>();
         Superhero superhero = database.searchForSuperhero(searchTerm);
         boolean editSuperheroError = false;
 
-        if (searchResults.isEmpty()) { // Hvis brugerens input ikke er fundet, vil vi få et "null"
-            System.out.println("Ingen helte fundet");
-        } else {
             System.out.println("Rediger data og tryk ENTER. Hvis data ikke skal redigeres tryk ENTER");
 
             System.out.println("Superheltens navn er: " + superhero.getNavn());
@@ -153,7 +150,6 @@ public class UserInterface {
             if (!nytKræfter.isEmpty()) {
                 superhero.setKræfter(nytKræfter);
             }
-
             do {
                 try {
                     System.out.println("Årstallet for superhelten er: " + superhero.getFødtIÅrstal());
@@ -166,9 +162,10 @@ public class UserInterface {
                     System.out.println("Indtast venligst et gyldigt årstal");
                     editSuperheroError = true;
                 }
+
             } while (editSuperheroError);
         }
-    }
+
 
     public static void findSuperhero() {
         System.out.println("Indtast den helt du leder efter: ");
@@ -176,10 +173,6 @@ public class UserInterface {
         ArrayList<Superhero> searchResults = new ArrayList<>();
         Superhero superhero = database.searchForSuperhero(searchTerm);
         boolean findSuperheroError = false;
-
-        if (searchResults.isEmpty()) { // Hvis brugerens input ikke er fundet, vil vi få et "null"
-            System.out.println("Tag det forkortet navn ind");
-        } else {
             do {
                 try {
                 } catch (Exception exception) {
@@ -197,7 +190,7 @@ public class UserInterface {
             }
         }
     }
-}
+
 
 
 
