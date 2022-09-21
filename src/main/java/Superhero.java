@@ -46,7 +46,7 @@ public class Superhero {
         this.kræfter=nytKræfter;
     }
 
-    public void setFødtIÅrstal(String nytFødtIÅrstal) {
-        this.fødtIÅrstal = Integer.parseInt(nytFødtIÅrstal);
+    public void setFødtIÅrstal(int nytFødtIÅrstal) {
+        this.fødtIÅrstal = nytFødtIÅrstal;
     }
 }
