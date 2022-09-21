@@ -105,7 +105,7 @@ public class UserInterface {
             System.out.println("Ingen helte fundet");
         } else {
             for (Superhero searchResult : searchResults) {
-                if (searchResult!= null) {
+                if (searchResult != null) {
                     System.out.println(count + 1 + ": " + searchResult.getNavn());
                 }
             }
@@ -116,8 +116,8 @@ public class UserInterface {
                     searchForSuperheroError = false;
                     System.out.println("Superheltens navn er: " + searchResults.get(count) + searchResults.get(number).getNavn());
                     System.out.println("Superheltens rigtige navn er: " + searchResults.get(count) + searchResults.get(number).getÆgteNavn());
-                    System.out.println("Din superhelt har disse kræfter: " + searchResults.get(count)+ searchResults.get(number).getKræfter());
-                    System.out.println("Årstallet for superhelten er: " + searchResults.get(count)+ searchResults.get(number).getFødtIÅrstal());
+                    System.out.println("Din superhelt har disse kræfter: " + searchResults.get(count) + searchResults.get(number).getKræfter());
+                    System.out.println("Årstallet for superhelten er: " + searchResults.get(count) + searchResults.get(number).getFødtIÅrstal());
                 } catch (Exception exception) {
                     System.out.println("Du skal indtaste et navn - Prøv venligst igen");
                     searchForSuperheroError = true;
@@ -129,15 +129,15 @@ public class UserInterface {
     public void editSuperhero() {
         System.out.println("rediger din helt her: ");
         String searchTerm = scanner.nextLine();
-        ArrayList <Superhero> searchResults = new ArrayList<>(); //TODO
+        ArrayList<Superhero> searchResults = new ArrayList<>(); //TODO
         Superhero superhero = database.searchForSuperhero(searchTerm);
         boolean editSuperheroError = false;
 
-
-        System.out.println("Rediger data og tryk ENTER. Hvis data ikke skal redigeres tryk ENTER");
-        if (superhero == null) {
-            System.out.println("Ingen superhelt fundet");
+        if (searchResults.isEmpty()) { // Hvis brugerens input ikke er fundet, vil vi få et "null"
+            System.out.println("Ingen helte fundet");
         } else {
+            System.out.println("Rediger data og tryk ENTER. Hvis data ikke skal redigeres tryk ENTER");
+
             System.out.println("Superheltens navn er: " + superhero.getNavn());
             String nytNavn = scanner.nextLine();
             if (!nytNavn.isEmpty()) {
@@ -145,7 +145,7 @@ public class UserInterface {
             }
             System.out.println("Superheltens rigtige navn er: " + superhero.getÆgteNavn());
             String nytÆgteNavn = scanner.nextLine();
-            if (!nytÆgteNavn.isEmpty()){
+            if (!nytÆgteNavn.isEmpty()) {
                 superhero.setÆgteNavn(nytÆgteNavn);
             }
             System.out.println("Din superhelt har disse kræfter: " + superhero.getKræfter());
@@ -176,25 +176,28 @@ public class UserInterface {
         ArrayList<Superhero> searchResults = new ArrayList<>();
         Superhero superhero = database.searchForSuperhero(searchTerm);
         boolean findSuperheroError = false;
-        do {
-            try {
-            }catch (Exception exception) {
-                System.out.println("Du skal indtaste navnet på helten du leder efter");
-                findSuperheroError = true;
-            }
-        } while (findSuperheroError == true);
-        if (superhero == null) {
-            System.out.println("Ingen superhelt fundet. Du skal indtaste forkortelsen og ikke tallet");
+
+        if (searchResults.isEmpty()) { // Hvis brugerens input ikke er fundet, vil vi få et "null"
+            System.out.println("Tag det forkortet navn ind");
         } else {
-            System.out.println("Superheltens navn er: " + superhero.getNavn());
-            System.out.println("Superheltens rigtige navn er: " + superhero.getÆgteNavn());
-            System.out.println("Din superhelt har disse kræfter: " + superhero.getKræfter());
-            System.out.println("Årstallet for superhelten er: " + superhero.getFødtIÅrstal());
+            do {
+                try {
+                } catch (Exception exception) {
+                    System.out.println("Du skal indtaste navnet på helten du leder efter");
+                    findSuperheroError = true;
+                }
+            } while (findSuperheroError == true);
+            if (superhero == null) {
+                System.out.println("Ingen superhelt fundet. Du skal indtaste forkortelsen og ikke tallet");
+            } else {
+                System.out.println("Superheltens navn er: " + superhero.getNavn());
+                System.out.println("Superheltens rigtige navn er: " + superhero.getÆgteNavn());
+                System.out.println("Din superhelt har disse kræfter: " + superhero.getKræfter());
+                System.out.println("Årstallet for superhelten er: " + superhero.getFødtIÅrstal());
+            }
         }
     }
 }
-
-
 
 
 
