@@ -1,11 +1,13 @@
 import org.junit.jupiter.api.Test;
 
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DatabaseTest {
+
 
     @Test
     public void findsuperheroTestWhenOneHeroes() {
@@ -75,5 +77,31 @@ public class DatabaseTest {
         assertEquals(actualSize, expectedSize);
 
     }
+
+    @Test
+    public void deleteSuperhero() {
+        Database database = new Database();
+        database.createTestData();
+        ArrayList<Superhero> results = database.getSuperheroArrayList();
+
+        Superhero superhero = results.get(0);
+
+        int expectedSize = results.size()-1;
+        boolean actualResult = database.deleteSuperhero(superhero);
+        boolean expectedResult = true;
+
+        assertEquals(expectedResult, actualResult);
+
+        ArrayList<Superhero> resultsAfterDelete = database.getSuperheroArrayList();
+        int acutalSize = resultsAfterDelete.size();
+
+        assertEquals(expectedSize, acutalSize);
+
+
+
+    }
 }
+
+
+
 

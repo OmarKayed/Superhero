@@ -24,7 +24,10 @@ public class Database {
     }
 
     public void createTestData () {
-        createSuperhero("Batman", "Dragt", 1996, "Bruce Wayne",true);
+        createSuperhero("Batman", "Suit", 1996, "Bruce Wayne",true);
+        createSuperhero("The Flash", "Speed", 2000, "Barry Allen", true);
+        createSuperhero("Black Panther", "Suit", 1990, "T'Challa", true);
+        createSuperhero("Iron Man", "Suit", 1990, "Tony Stark", true);
     }
 
 
@@ -60,6 +63,14 @@ public class Database {
             }
         }
         return superheroes;
+    }
+
+    public boolean deleteSuperhero (Superhero superhero) {
+
+        getSuperheroArrayList().remove(superhero);
+
+        boolean success = true;
+        return success;
     }
 
 }
